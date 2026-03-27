@@ -1,0 +1,73 @@
+:root {
+    --bg-dark: #0f1210;
+    --bg-dark-alt: #181c19;
+    --bg-section: #1e2320;
+    --bg-light: #f5f5f0;
+    --bg-white: #ffffff;
+
+    --text-light: #ffffff;
+    --text-muted: #9a9a9a;
+    --text-dark: #1a1a1a;
+    --text-dark-muted: #555555;
+
+    --accent: #6b7c3f;
+    --accent-hover: #8a9f52;
+    --accent-dark: #4a5a28;
+    --accent-rgb: 107, 124, 63;
+
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(0, 0, 0, 0.1);
+
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.125rem;
+    --fs-xl: 1.25rem;
+    --fs-2xl: 1.5rem;
+    --fs-3xl: 2rem;
+    --fs-4xl: 2.5rem;
+    --fs-5xl: 3.5rem;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+
+    --transition: 0.3s ease;
+    --transition-slow: 0.6s ease;
+
+    --container-max: 1400px;
+    --container-padding: 1rem;
+
+    --header-height: 60px;
+    --topbar-height: 40px;
+
+    --radius: 4px;
+    --radius-lg: 8px;
+
+    --z-header: 100;
+    --z-overlay: 200;
+    --z-lightbox: 300;
+    --z-scroll-top: 50;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --container-padding: 2rem;
+        --header-height: 70px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --container-padding: 3rem;
+    }
+}

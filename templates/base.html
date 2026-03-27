@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>{{ site_settings.meta_title|default:site_settings.company_name }}</title>
+    <meta name="description" content="{{ site_settings.meta_description }}">
+    <meta property="og:title" content="{{ site_settings.meta_title|default:site_settings.company_name }}">
+    <meta property="og:description" content="{{ site_settings.meta_description }}">
+    <meta property="og:type" content="website">
+    {% if site_settings.og_image %}<meta property="og:image" content="{{ site_settings.og_image.url }}">{% endif %}
+    {% if site_settings.favicon %}
+    <link rel="icon" type="image/svg+xml" href="{{ site_settings.favicon.url }}">
+    {% else %}
+    <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+    {% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sections.css' %}">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perspectives.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+    <script src="https://unpkg.com/htmx.org@2.0.4" defer></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <script src="{% static 'js/animations.js' %}" defer></script>
+    <script src="{% static 'js/carousel.js' %}" defer></script>
+    <script src="{% static 'js/gallery.js' %}" defer></script>
+    <script src="{% static 'js/counters.js' %}" defer></script>
+</body>
+</html>

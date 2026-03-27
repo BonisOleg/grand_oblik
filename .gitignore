@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.so
+db.sqlite3
+.env
+media/
+staticfiles/
+.venv/
+docx_images/
+*.pyc
+.DS_Store
+*.jpg
+*.jpeg
+*.png
+*.docx
+*.doc

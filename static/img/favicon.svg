@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#1A1A2E"/>
+
+  <!-- Main tower (center) -->
+  <rect x="22" y="14" width="20" height="38" fill="#C8A96E"/>
+
+  <!-- Tower windows - left column -->
+  <rect x="25" y="18" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="25" y="26" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="25" y="34" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="25" y="42" width="5" height="4" rx="1" fill="#1A1A2E"/>
+
+  <!-- Tower windows - right column -->
+  <rect x="34" y="18" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="34" y="26" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="34" y="34" width="5" height="4" rx="1" fill="#1A1A2E"/>
+  <rect x="34" y="42" width="5" height="4" rx="1" fill="#1A1A2E"/>
+
+  <!-- Left low building -->
+  <rect x="10" y="30" width="12" height="22" fill="#B8935E"/>
+
+  <!-- Left building windows -->
+  <rect x="13" y="34" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="18" y="34" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="13" y="41" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="18" y="41" width="3" height="3" rx="1" fill="#1A1A2E"/>
+
+  <!-- Right low building -->
+  <rect x="42" y="30" width="12" height="22" fill="#B8935E"/>
+
+  <!-- Right building windows -->
+  <rect x="45" y="34" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="50" y="34" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="45" y="41" width="3" height="3" rx="1" fill="#1A1A2E"/>
+  <rect x="50" y="41" width="3" height="3" rx="1" fill="#1A1A2E"/>
+
+  <!-- Ground line -->
+  <rect x="8" y="52" width="48" height="2" rx="1" fill="#C8A96E"/>
+</svg>

@@ -1,0 +1,19 @@
+<section class="section section--dark-alt">
+    <div class="container">
+        <div class="section-header animate-slide-left">
+            <h2 class="section-title">Наш досвід</h2>
+            <p class="section-subtitle">Проєкти, в яких ми брали участь</p>
+        </div>
+        <div class="experience-grid">
+            {% for pp in partner_projects %}
+            <div class="experience-card animate-fade-up" data-delay="{{ forloop.counter0 }}00">
+                <h3 class="experience-card__name">{{ pp.name }}</h3>
+                {% if pp.description %}
+                <p class="experience-card__desc">{{ pp.description }}</p>
+                {% endif %}
+                <span class="experience-card__badge">{{ pp.get_category_display }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

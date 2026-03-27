@@ -1,0 +1,29 @@
+{% load image_tags %}
+<section id="perspectives" class="section section--dark-alt">
+    <div class="container">
+        <div class="section-header animate-slide-left">
+            <h2 class="section-title">Перспективи</h2>
+            <p class="section-subtitle">{{ perspective.subtitle }}</p>
+        </div>
+
+        {% if perspective.hero_image %}
+        <div class="perspective-hero animate-scale-in">
+            <img src="{{ perspective.hero_image.url|webp }}" alt="{{ perspective.title }}" loading="lazy">
+            <div class="perspective-hero__overlay"></div>
+            <div class="perspective-hero__label">{{ perspective.title }}</div>
+        </div>
+        {% endif %}
+
+        <p class="perspective-text animate-fade-up">{{ perspective.description }}</p>
+
+        {% if gallery_perspective %}
+        <div class="perspective-mini-gallery">
+            {% for img in gallery_perspective %}
+            <div class="perspective-mini-gallery__item" data-category="perspective">
+                <img src="{{ img.image.url|webp }}" alt="{{ img.caption }}" loading="lazy">
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>

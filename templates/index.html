@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'partials/header.html' %}
+{% include 'partials/hero.html' %}
+{% include 'partials/projects.html' %}
+{% include 'partials/about.html' %}
+{% include 'partials/experience.html' %}
+{% include 'partials/perspectives.html' %}
+{% include 'partials/gallery.html' %}
+{% include 'partials/contacts.html' %}
+{% include 'partials/footer.html' %}
+
+<div id="lightbox" class="lightbox">
+    <button class="lightbox__close" aria-label="Закрити">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+    </button>
+    <button class="lightbox__arrow lightbox__arrow--prev" aria-label="Попереднє">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+        </svg>
+    </button>
+    <img class="lightbox__img" src="" alt="">
+    <button class="lightbox__arrow lightbox__arrow--next" aria-label="Наступне">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
+    <div class="lightbox__caption"></div>
+    <div class="lightbox__counter"></div>
+</div>
+
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Нагору">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
+{% endblock %}

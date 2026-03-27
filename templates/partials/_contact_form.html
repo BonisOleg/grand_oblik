@@ -1,0 +1,38 @@
+{% load static %}
+<p class="contact-form-wrap__title">
+    Заповніть форму і наш менеджер зателефонує вам найближчим часом
+</p>
+<form hx-post="{% url 'contact_submit' %}"
+      hx-target="#contact-form-container"
+      hx-swap="innerHTML"
+      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+      hx-indicator="#form-spinner"
+      novalidate>
+    {% csrf_token %}
+
+    <div class="form-field">
+        {{ form.name }}
+        {% if form.name.errors %}
+        <span class="form-field-error">{{ form.name.errors.0 }}</span>
+        {% endif %}
+    </div>
+
+    <div class="form-field">
+        {{ form.phone }}
+        {% if form.phone.errors %}
+        <span class="form-field-error">{{ form.phone.errors.0 }}</span>
+        {% endif %}
+    </div>
+
+    <div class="form-field">
+        {{ form.object_type }}
+        {% if form.object_type.errors %}
+        <span class="form-field-error">{{ form.object_type.errors.0 }}</span>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn--filled form-submit">
+        <span>Отримати консультацію</span>
+        <span id="form-spinner" class="htmx-indicator">...</span>
+    </button>
+</form>

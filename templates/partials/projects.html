@@ -1,0 +1,53 @@
+{% load image_tags %}
+<section id="projects" class="section section--dark-alt">
+    <div class="container">
+        <div class="section-header animate-slide-left">
+            <h2 class="section-title">Наші об'єкти</h2>
+            <p class="section-subtitle">Збудовані житлові комплекси</p>
+        </div>
+        <div class="carousel">
+            <div class="carousel__track">
+                {% for project in projects %}
+                <div class="carousel__slide">
+                    <div class="project-card animate-fade-up">
+                        {% if project.cover_image %}
+                        <div class="project-card__image">
+                            <img src="{{ project.cover_image.image.url|webp }}"
+                                 alt="{{ project.name }}"
+                                 loading="lazy">
+                            <span class="project-card__status">
+                                {{ project.get_status_display }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <div class="project-card__body">
+                            <h3 class="project-card__name">{{ project.name }}</h3>
+                            <p class="project-card__address">{{ project.address }}, {{ project.city }}</p>
+                            <div class="project-card__stats">
+                                {% if project.year_completed %}
+                                <div class="project-card__stat">
+                                    <div class="project-card__stat-label">Рік</div>
+                                    <div class="project-card__stat-value">{{ project.year_completed }}</div>
+                                </div>
+                                {% endif %}
+                                <div class="project-card__stat">
+                                    <div class="project-card__stat-label">Поверхи</div>
+                                    <div class="project-card__stat-value">{{ project.floors }}</div>
+                                </div>
+                                <div class="project-card__stat">
+                                    <div class="project-card__stat-label">Квартири</div>
+                                    <div class="project-card__stat-value">{{ project.apartments_count }}</div>
+                                </div>
+                                <div class="project-card__stat">
+                                    <div class="project-card__stat-label">Площа</div>
+                                    <div class="project-card__stat-value">{{ project.total_area|floatformat:0 }} м&sup2;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
