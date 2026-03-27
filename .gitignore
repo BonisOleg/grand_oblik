@@ -14,3 +14,5 @@ docx_images/
 *.png
 *.docx
 *.doc
+!seed_media/
+!seed_media/**

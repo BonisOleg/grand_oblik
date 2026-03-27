@@ -1,7 +1,3 @@
-import os
-import shutil
-from pathlib import Path
-
 from django.core.management.base import BaseCommand
 from django.core.files import File
 from django.conf import settings
@@ -12,32 +8,7 @@ from core.models import (
     PerspectiveInfo, PerspectiveStat,
 )
 
-BASE = settings.BASE_DIR
-DOCX_MEDIA = BASE / 'docx_images' / 'word' / 'media'
-
-IMG_MAP = {
-    'IMG-fbe5d613d7137605cf6643825d2452ea-V.jpg': 'hero',
-    'IMG-113f4f629b35bc96265be451e09f1826-V.jpg': 'perspective',
-    'IMG-11edfa1a8958207e89b28f1067bfbad0-V.jpg': 'perspective',
-    'IMG-43996f15ed300bfc35222e2a1c4df71d-V.jpg': 'perspective',
-    'IMG-627731de61bbb40fe4411c04d36177cb-V.jpg': 'perspective',
-    'IMG-b492af09d871b03f7a41186b38cba2a6-V.jpg': 'perspective',
-    'IMG-c902d906d07a3bbaa1c9f334fb28b83d-V.jpg': 'perspective',
-    'IMG-d505fdd49a135cefa7df543f6c2b4512-V.jpg': 'perspective',
-    'IMG-f5d4220e94826086676967445c3e71c3-V.jpg': 'perspective',
-}
-
-CAPTIONS = {
-    'IMG-113f4f629b35bc96265be451e09f1826-V.jpg': 'Панорама комплексу',
-    'IMG-11edfa1a8958207e89b28f1067bfbad0-V.jpg': 'Двір та благоустрій',
-    'IMG-43996f15ed300bfc35222e2a1c4df71d-V.jpg': 'Вулична перспектива',
-    'IMG-627731de61bbb40fe4411c04d36177cb-V.jpg': 'Перспектива між будинками',
-    'IMG-b492af09d871b03f7a41186b38cba2a6-V.jpg': 'Фасад з балконами',
-    'IMG-c902d906d07a3bbaa1c9f334fb28b83d-V.jpg': 'Панорама 16-поверхових будинків',
-    'IMG-d505fdd49a135cefa7df543f6c2b4512-V.jpg': 'Дитячий майданчик',
-    'IMG-f5d4220e94826086676967445c3e71c3-V.jpg': 'Деталі фасаду',
-    'IMG-fbe5d613d7137605cf6643825d2452ea-V.jpg': 'Вигляд з висоти пташиного польоту',
-}
+SEED = settings.BASE_DIR / 'seed_media'
 
 
 class Command(BaseCommand):
@@ -55,8 +26,14 @@ class Command(BaseCommand):
         self.seed_gallery()
         self.stdout.write(self.style.SUCCESS('Дані успішно завантажені.'))
 
-    def _open(self, path):
-        return open(path, 'rb')
+    def _save_image(self, field, rel_path, name):
+        path = SEED / rel_path
+        if path.exists():
+            with open(path, 'rb') as f:
+                field.save(name, File(f), save=False)
+            return True
+        self.stdout.write(self.style.WARNING(f'  Файл не знайдено: {path}'))
+        return False
 
     def seed_settings(self):
         s, _ = SiteSettings.objects.get_or_create(pk=1)
@@ -81,17 +58,15 @@ class Command(BaseCommand):
     def seed_hero(self):
         if HeroSlide.objects.exists():
             return
-        hero_file = BASE / 'IMG-11edfa1a8958207e89b28f1067bfbad0-V.jpg'
-        if hero_file.exists():
-            slide = HeroSlide(
-                title='ЕЛІТ-ФАСАД ГРУП',
-                subtitle='Будівництво та девелопмент з 2007 року',
-                cta_text="Зв'язатися",
-                cta_link='#contacts',
-                order=0,
-            )
-            with self._open(hero_file) as f:
-                slide.image.save('hero-main.jpg', File(f), save=True)
+        slide = HeroSlide(
+            title='ЕЛІТ-ФАСАД ГРУП',
+            subtitle='Будівництво та девелопмент з 2007 року',
+            cta_text="Зв'язатися",
+            cta_link='#contacts',
+            order=0,
+        )
+        self._save_image(slide.image, 'hero/hero-main.jpg', 'hero-main.jpg')
+        slide.save()
         self.stdout.write('  HeroSlide OK')
 
     def seed_services(self):
@@ -117,25 +92,25 @@ class Command(BaseCommand):
                 'name': 'ЖК "Зірка Дніпра"', 'address': 'вул. Глібова, 43',
                 'status': 'completed', 'year': 2013, 'floors': '10',
                 'apts': 168, 'area': 17533.9, 'comm': 594.4,
-                'images': ['image1.jpeg'],
+                'images': ['zirka-dnipra.jpeg'],
             },
             {
                 'name': 'ЖК "Зірка Вишгорода"', 'address': 'вул. Шолуденка, 18А',
                 'status': 'completed', 'year': 2016, 'floors': '10',
                 'apts': 184, 'area': 22740.77, 'comm': 775.73,
-                'images': ['image2.jpeg'],
+                'images': ['zirka-vyshgoroda.jpeg'],
             },
             {
                 'name': 'ЖК "Зірковий"', 'address': 'вул. Ватутіна, 79',
                 'status': 'completed', 'year': 2018, 'floors': '10',
                 'apts': 196, 'area': 23014.16, 'comm': 809.28,
-                'images': ['image3.jpeg'],
+                'images': ['zirkovyi.jpeg'],
             },
             {
                 'name': 'ЖК "Зіркова Вежа"', 'address': 'вул. Шолуденка, 26',
                 'status': 'in_progress', 'year': None, 'floors': '10, 12',
                 'apts': 382, 'area': 39375.37, 'comm': 1115.31,
-                'images': ['image4.jpeg', 'image5.jpeg'],
+                'images': ['zirkova-vezha-1.jpeg', 'zirkova-vezha-2.jpeg'],
             },
         ]
         for i, pd in enumerate(projects_data):
@@ -146,11 +121,9 @@ class Command(BaseCommand):
                 total_area=pd['area'], commercial_area=pd['comm'], order=i,
             )
             for j, img_name in enumerate(pd['images']):
-                img_path = DOCX_MEDIA / img_name
-                if img_path.exists():
-                    pi = ProjectImage(project=proj, is_cover=(j == 0), order=j)
-                    with self._open(img_path) as f:
-                        pi.image.save(img_name, File(f), save=True)
+                pi = ProjectImage(project=proj, is_cover=(j == 0), order=j)
+                self._save_image(pi.image, f'projects/{img_name}', img_name)
+                pi.save()
         self.stdout.write('  Projects OK')
 
     def seed_advantages(self):
@@ -211,10 +184,7 @@ class Command(BaseCommand):
             'пропускний пункт з охороною.'
         )
         p.location = 'м. Васильків, Київська область'
-        hero_file = BASE / 'IMG-c902d906d07a3bbaa1c9f334fb28b83d-V.jpg'
-        if hero_file.exists():
-            with self._open(hero_file) as f:
-                p.hero_image.save('vasylkiv-panorama.jpg', File(f), save=False)
+        self._save_image(p.hero_image, 'perspectives/16-poverkhovi.jpg', 'vasylkiv-panorama.jpg')
         p.save()
 
         PerspectiveStat.objects.filter(perspective=p).delete()
@@ -242,16 +212,23 @@ class Command(BaseCommand):
                     order=GalleryImage.objects.count(),
                 )
 
-        for fname, role in IMG_MAP.items():
-            if role != 'perspective':
-                continue
-            img_path = BASE / fname
-            if img_path.exists():
-                gi = GalleryImage(
-                    caption=CAPTIONS.get(fname, ''),
-                    category='perspective',
-                    order=GalleryImage.objects.count(),
-                )
-                with self._open(img_path) as f:
-                    gi.image.save(fname, File(f), save=True)
+        perspective_images = [
+            ('panorama.jpg', 'Панорама комплексу'),
+            ('dvir.jpg', 'Двір та благоустрій'),
+            ('vulychna.jpg', 'Вулична перспектива'),
+            ('mizh-budynkamy.jpg', 'Перспектива між будинками'),
+            ('balkony.jpg', 'Фасад з балконами'),
+            ('16-poverkhovi.jpg', 'Панорама 16-поверхових будинків'),
+            ('dytiachyi.jpg', 'Дитячий майданчик'),
+            ('detali.jpg', 'Деталі фасаду'),
+            ('z-vysoty.jpg', 'Вигляд з висоти пташиного польоту'),
+        ]
+        for fname, caption in perspective_images:
+            gi = GalleryImage(
+                caption=caption,
+                category='perspective',
+                order=GalleryImage.objects.count(),
+            )
+            self._save_image(gi.image, f'perspectives/{fname}', fname)
+            gi.save()
         self.stdout.write('  Gallery OK')
