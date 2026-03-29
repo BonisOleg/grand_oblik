@@ -21,7 +21,9 @@ services:
       - key: DEBUG
         value: 'False'
       - key: ALLOWED_HOSTS
-        value: '.onrender.com'
+        value: '.onrender.com,elit-fasad-development.com.ua'
+      - key: CSRF_TRUSTED_ORIGINS
+        value: 'https://stroika.onrender.com,https://elit-fasad-development.com.ua'
       - key: USE_CLOUDINARY
         value: 'True'
       - key: CLOUDINARY_CLOUD_NAME
