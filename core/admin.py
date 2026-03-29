@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib import admin
 from django.utils.html import mark_safe
 from .models import (
@@ -5,6 +7,8 @@ from .models import (
     Advantage, WorkStep, PartnerProject, GalleryImage,
     PerspectiveInfo, PerspectiveStat, ContactRequest,
 )
+
+logger = logging.getLogger(__name__)
 
 admin.site.site_header = 'ЕЛІТ-ФАСАД — Адміністрування'
 admin.site.site_title = 'ЕЛІТ-ФАСАД CMS'
@@ -50,9 +54,19 @@ class HeroSlideAdmin(admin.ModelAdmin):
     list_editable = ['order', 'is_active']
     list_filter = ['is_active']
 
+    def save_model(self, request, obj, form, change):
+        try:
+            super().save_model(request, obj, form, change)
+        except Exception:
+            logger.exception('HeroSlide save failed')
+            raise
+
     def preview(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" style="max-height:60px;" />')
+            try:
+                return mark_safe(f'<img src="{obj.image.url}" style="max-height:60px;" />')
+            except Exception:
+                return '(broken url)'
         return ''
     preview.short_description = 'Зображення'
 
