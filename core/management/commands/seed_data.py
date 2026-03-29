@@ -164,6 +164,9 @@ class Command(BaseCommand):
             ('ЖК "Перлина Троєщини"', 'Фасадні роботи, м. Київ', 'residential'),
             ('GK Алюпол', 'Офісні/складські будівлі, смт. Бородянка', 'industrial'),
             ('Завод "Стімекс"', 'ПВХ продукція та віконні системи', 'industrial'),
+            ('Котеджне містечко', '', 'cottage'),
+            ('Котеджне містечко', '', 'cottage'),
+            ('', '', 'cottage'),
         ]
         for i, (name, desc, cat) in enumerate(partners):
             PartnerProject.objects.create(name=name, description=desc, category=cat, order=i)

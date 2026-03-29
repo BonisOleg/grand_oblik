@@ -164,6 +164,7 @@ class PartnerProject(models.Model):
         ('industrial', 'Промислове'),
         ('residential', 'Житлове'),
         ('commercial', 'Комерційне'),
+        ('cottage', 'Котеджні містечка'),
     ]
     name = models.CharField('Назва проєкту', max_length=200)
     description = models.CharField('Опис', max_length=300, blank=True)

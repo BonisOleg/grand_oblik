@@ -7,22 +7,28 @@ function initGalleryFilters() {
     const filters = document.querySelectorAll('.gallery-filter');
     const items = document.querySelectorAll('.gallery-item');
 
+    function applyFilter(cat) {
+        items.forEach(item => {
+            if (cat === 'all' || item.dataset.category === cat) {
+                item.dataset.hidden = 'false';
+                item.style.display = '';
+            } else {
+                item.dataset.hidden = 'true';
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    const activeBtn = document.querySelector('.gallery-filter.is-active');
+    if (activeBtn) {
+        applyFilter(activeBtn.dataset.category);
+    }
+
     filters.forEach(btn => {
         btn.addEventListener('click', () => {
-            const cat = btn.dataset.category;
-
             filters.forEach(f => f.classList.remove('is-active'));
             btn.classList.add('is-active');
-
-            items.forEach(item => {
-                if (cat === 'all' || item.dataset.category === cat) {
-                    item.dataset.hidden = 'false';
-                    item.style.display = '';
-                } else {
-                    item.dataset.hidden = 'true';
-                    item.style.display = 'none';
-                }
-            });
+            applyFilter(btn.dataset.category);
         });
     });
 }
