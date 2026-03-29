@@ -41,6 +41,7 @@ class Command(BaseCommand):
         s.slogan = 'Будівництво та девелопмент з 2007 року'
         s.phone_main = '+38 (044) 561-62-63'
         s.phone_dev = '+38 (099) 352-20-01'
+        s.email = 'elit.fasad.ltd@gmail.com'
         s.address = 'Київська обл., Вишгородський р-он, м. Вишгород, вул. Шолуденка, буд. 18А, оф.181'
         s.meta_title = 'ЕЛІТ-ФАСАД ГРУП — Будівництво житлових комплексів'
         s.meta_description = (
