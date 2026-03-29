@@ -1,23 +1,17 @@
 <section id="about" class="section section--light">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">Про компанію</h2>
-            <p class="section-subtitle">Будівництво та девелопмент з 2007 року</p>
+            <h2 class="section-title">{{ site_settings.about_title }}</h2>
+            {% if site_settings.about_subtitle %}
+            <p class="section-subtitle">{{ site_settings.about_subtitle }}</p>
+            {% endif %}
         </div>
-        <p class="about-text animate-fade-up">
-            Засновником групи компаній ТОВ &laquo;ЕЛІТ-ФАСАД&raquo;, ТОВ &laquo;ЕЛІТ-ФАСАД ГРУП&raquo;,
-            ТОВ &laquo;ЕЛІТ-ФАСАД ДЕВЕЛОПМЕНТ&raquo; та обслуговуючої організації ТОВ &laquo;ЗІРКА СЕРВІС ЕЛІТ&raquo;
-            являється Каграманов Гаврило Сергійович. Підприємства створені опираючись на багаторічний досвід
-            у галузі будівництва в м. Києві та Київській області.
-        </p>
-        <p class="about-text animate-fade-up" data-delay="200">
-            Початок шляху як забудовника заснований у червні 2007 року в м. Вишгород,
-            що дало багатьом сім'ям тепло, затишок та комфорт проживання, а якість
-            подарувала економію в повсякденній експлуатації. За довгий час праці на
-            будівельному ринку ми досягли високого рівня порозуміння, знаходимо
-            індивідуальний підхід, через що кожен, хто співпрацює з нами, залишається
-            задоволеним та стає постійним партнером.
-        </p>
+        {% if site_settings.about_text_1 %}
+        <p class="about-text animate-fade-up">{{ site_settings.about_text_1 }}</p>
+        {% endif %}
+        {% if site_settings.about_text_2 %}
+        <p class="about-text animate-fade-up" data-delay="200">{{ site_settings.about_text_2 }}</p>
+        {% endif %}
         <div class="advantages animate-fade-up" data-delay="400">
             {% for adv in advantages %}
             <div class="advantage-card">

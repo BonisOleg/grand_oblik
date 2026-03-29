@@ -2,12 +2,13 @@
 <section id="gallery" class="section section--dark">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">Галерея</h2>
+            <h2 class="section-title">{{ site_settings.gallery_title }}</h2>
         </div>
 
         <div class="gallery-filters animate-fade-up">
-            <button class="gallery-filter is-active" data-category="completed">Об'єкти Вишгород</button>
-            <button class="gallery-filter" data-category="perspective">Перспективні проєкти</button>
+            <button class="gallery-filter is-active" data-category="realized">{{ site_settings.gallery_tab_realized }}</button>
+            <button class="gallery-filter" data-category="completed">{{ site_settings.gallery_tab_completed }}</button>
+            <button class="gallery-filter" data-category="perspective">{{ site_settings.gallery_tab_perspective }}</button>
         </div>
 
         <div class="gallery-grid">

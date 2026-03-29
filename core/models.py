@@ -16,6 +16,37 @@ class SiteSettings(models.Model):
     meta_description = models.TextField('Meta Description', blank=True)
     og_image = models.ImageField('OG Image', upload_to='site/', blank=True)
 
+    # Секція "Про компанію"
+    about_title = models.CharField('Заголовок блоку "Про нас"', max_length=200, default='Про компанію')
+    about_subtitle = models.CharField('Підзаголовок блоку "Про нас"', max_length=300, blank=True)
+    about_text_1 = models.TextField('Перший абзац "Про нас"', blank=True)
+    about_text_2 = models.TextField('Другий абзац "Про нас"', blank=True)
+
+    # Заголовки секцій
+    projects_title = models.CharField('Секція "Об\'єкти" — заголовок', max_length=200, default="Власні об'єкти")
+    projects_subtitle = models.CharField('Секція "Об\'єкти" — підзаголовок', max_length=300, default='Збудовані житлові комплекси')
+    services_title = models.CharField('Секція "Послуги" — заголовок', max_length=200, default='Наші послуги')
+    experience_title = models.CharField('Секція "Досвід" — заголовок', max_length=200, default='Наш досвід')
+    experience_subtitle = models.CharField('Секція "Досвід" — підзаголовок', max_length=300, default='Проєкти, в яких ми брали участь')
+    gallery_title = models.CharField('Секція "Галерея" — заголовок', max_length=200, default='Галерея')
+    gallery_tab_realized = models.CharField('Галерея — вкладка "Реалізовані"', max_length=100, default='Реалізовані об\'єкти')
+    gallery_tab_completed = models.CharField('Галерея — вкладка "Вишгород"', max_length=100, default='Об\'єкти Вишгород')
+    gallery_tab_perspective = models.CharField('Галерея — вкладка "Перспективні"', max_length=100, default='Перспективні проєкти')
+    contacts_title = models.CharField('Секція "Контакти" — заголовок', max_length=200, default='Контакти')
+    contacts_subtitle = models.CharField('Секція "Контакти" — підзаголовок', max_length=300, default="Залишилися питання? Зв'яжіться з нами")
+
+    # Форма зворотного зв'язку
+    contact_form_text = models.CharField(
+        'Текст над формою', max_length=300,
+        default='Заповніть форму і наш менеджер зателефонує вам найближчим часом',
+    )
+    contact_form_button = models.CharField('Текст кнопки форми', max_length=100, default='Отримати консультацію')
+    contact_success_title = models.CharField('Заголовок після відправки', max_length=200, default='Дякуємо за звернення!')
+    contact_success_text = models.CharField(
+        'Текст після відправки', max_length=300,
+        default='Наш менеджер зв\'яжеться з вами найближчим часом.',
+    )
+
     class Meta:
         verbose_name = 'Налаштування сайту'
         verbose_name_plural = 'Налаштування сайту'
@@ -182,7 +213,8 @@ class PartnerProject(models.Model):
 
 class GalleryImage(models.Model):
     CATEGORY_CHOICES = [
-        ('completed', 'Збудовані об\'єкти'),
+        ('realized', 'Реалізовані об\'єкти'),
+        ('completed', 'Об\'єкти Вишгород'),
         ('perspective', 'Перспективні проєкти'),
     ]
     image = models.ImageField('Зображення', upload_to='gallery/')

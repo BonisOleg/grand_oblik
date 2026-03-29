@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import (
     HeroSlide, Project, Advantage,
-    PartnerProject, GalleryImage, PerspectiveInfo,
+    PartnerProject, GalleryImage, PerspectiveInfo, SiteSettings,
 )
 from .forms import ContactForm
 
@@ -14,6 +14,7 @@ def index(request):
         'advantages': Advantage.objects.all(),
         'partner_projects': PartnerProject.objects.all(),
         'gallery_images': GalleryImage.objects.all(),
+        'gallery_realized': GalleryImage.objects.filter(category='realized'),
         'gallery_completed': GalleryImage.objects.filter(category='completed'),
         'gallery_perspective': GalleryImage.objects.filter(category='perspective'),
         'perspective': PerspectiveInfo.load(),
@@ -29,13 +30,14 @@ def contact_submit(request):
     form = ContactForm(request.POST)
     if form.is_valid():
         form.save()
+        s = SiteSettings.load()
         return HttpResponse(
             '<div class="form-success animate-fade-up">'
             '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
             '<path d="M20 6L9 17l-5-5"/>'
             '</svg>'
-            '<p>Дякуємо за звернення!</p>'
-            '<p>Наш менеджер зв\'яжеться з вами найближчим часом.</p>'
+            f'<p>{s.contact_success_title}</p>'
+            f'<p>{s.contact_success_text}</p>'
             '</div>'
         )
 

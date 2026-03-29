@@ -18,6 +18,23 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         ('Контакти', {'fields': ['phone_main', 'phone_dev', 'address', 'email']}),
         ('Карта', {'fields': ['google_maps_embed_url']}),
         ('SEO', {'fields': ['meta_title', 'meta_description', 'og_image']}),
+        ('Секція «Про компанію»', {'fields': [
+            'about_title', 'about_subtitle', 'about_text_1', 'about_text_2',
+        ]}),
+        ('Заголовки секцій', {'fields': [
+            'projects_title', 'projects_subtitle',
+            'services_title',
+            'experience_title', 'experience_subtitle',
+            'gallery_title',
+            'contacts_title', 'contacts_subtitle',
+        ]}),
+        ('Галерея — назви вкладок', {'fields': [
+            'gallery_tab_realized', 'gallery_tab_completed', 'gallery_tab_perspective',
+        ]}),
+        ('Форма зворотного зв\'язку', {'fields': [
+            'contact_form_text', 'contact_form_button',
+            'contact_success_title', 'contact_success_text',
+        ]}),
     ]
 
     def has_add_permission(self, request):

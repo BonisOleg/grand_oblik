@@ -2,8 +2,10 @@
 <section id="projects" class="section section--dark-alt">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">Наші об'єкти</h2>
-            <p class="section-subtitle">Збудовані житлові комплекси</p>
+            <h2 class="section-title">{{ site_settings.projects_title }}</h2>
+            {% if site_settings.projects_subtitle %}
+            <p class="section-subtitle">{{ site_settings.projects_subtitle }}</p>
+            {% endif %}
         </div>
         <div class="carousel">
             <div class="carousel__track">

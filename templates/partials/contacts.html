@@ -2,8 +2,10 @@
 <section id="contacts" class="section section--dark-alt">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">Контакти</h2>
-            <p class="section-subtitle">Залишилися питання? Зв'яжіться з нами</p>
+            <h2 class="section-title">{{ site_settings.contacts_title }}</h2>
+            {% if site_settings.contacts_subtitle %}
+            <p class="section-subtitle">{{ site_settings.contacts_subtitle }}</p>
+            {% endif %}
         </div>
 
         <div class="contact-info animate-fade-up">
