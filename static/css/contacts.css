@@ -206,6 +206,22 @@
     color: var(--accent);
 }
 
+.footer__dev {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+}
+
+.footer__dev-link {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+.footer__dev-link:hover {
+    color: var(--accent);
+}
+
 @media (min-width: 768px) {
     .contact-map {
         height: 420px;
