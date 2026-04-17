@@ -138,6 +138,12 @@
     font-weight: var(--fw-medium);
 }
 
+.contact-info__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
 .contact-info__value a:hover {
     color: var(--accent);
 }

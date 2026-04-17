@@ -61,8 +61,10 @@ class SiteSettings(models.Model):
     @classmethod
     def load(cls):
         obj, _ = cls.objects.get_or_create(pk=1, defaults={
-            'phone_main': '+38 (098) 123 45 67',
-            'address': '',
+            'phone_main': '+38 (050) 304 74 62',
+            'phone_dev': '+38 (066) 055 70 41',
+            'address': 'м. Полтава, вул. Котляревського, 3, оф. 404/5',
+            'email': 'grandoblik@ukr.net',
         })
         return obj
 
