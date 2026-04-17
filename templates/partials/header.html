@@ -1,29 +1,23 @@
 <div class="top-bar">
     <div class="container top-bar__inner">
-        <a href="tel:{{ site_settings.phone_main }}" class="top-bar__phone">
+        <a href="tel:+380981234567" class="top-bar__phone">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
             </svg>
-            {{ site_settings.phone_main }}
+            +38 (098) 123 45 67
         </a>
-        {% if site_settings.phone_dev %}
-        <a href="tel:{{ site_settings.phone_dev }}" class="top-bar__phone">
-            {{ site_settings.phone_dev }}
-        </a>
-        {% endif %}
     </div>
 </div>
 
 <header class="nav" id="nav">
     <div class="container nav__inner">
-        <a href="#" class="nav__logo">{{ site_settings.company_name }}</a>
+        <a href="#" class="nav__logo">Гранд Облік</a>
         <nav class="nav__menu">
-            <a href="#projects" class="nav__link">Об'єкти</a>
-            <a href="#about" class="nav__link">Про нас</a>
-            <a href="#perspectives" class="nav__link">Перспективи</a>
-            <a href="#gallery" class="nav__link">Галерея</a>
+            <a href="#services" class="nav__link">Послуги</a>
+            <a href="#agro" class="nav__link">Про нас</a>
             <a href="#contacts" class="nav__link">Контакти</a>
         </nav>
+        <a href="tel:+380981234567" class="top-bar__phone nav__phone">+38 (098) 123 45 67</a>
         <button class="nav__hamburger" id="hamburger" aria-label="Меню">
             <span></span><span></span><span></span>
         </button>
@@ -36,10 +30,8 @@
             <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
     </button>
-    <a href="#projects" class="mobile-menu__link">Об'єкти</a>
-    <a href="#about" class="mobile-menu__link">Про нас</a>
-    <a href="#perspectives" class="mobile-menu__link">Перспективи</a>
-    <a href="#gallery" class="mobile-menu__link">Галерея</a>
+    <a href="#services" class="mobile-menu__link">Послуги</a>
+    <a href="#agro" class="mobile-menu__link">Про нас</a>
     <a href="#contacts" class="mobile-menu__link">Контакти</a>
-    <a href="tel:{{ site_settings.phone_main }}" class="mobile-menu__phone">{{ site_settings.phone_main }}</a>
+    <a href="tel:+380981234567" class="mobile-menu__phone">+38 (098) 123 45 67</a>
 </div>

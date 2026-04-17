@@ -1,55 +1,47 @@
-{% load image_tags %}
-<section id="projects" class="section section--dark-alt">
+<section id="registration" class="section section--dark-alt">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">{{ site_settings.projects_title }}</h2>
-            {% if site_settings.projects_subtitle %}
-            <p class="section-subtitle">{{ site_settings.projects_subtitle }}</p>
-            {% endif %}
+            <h2 class="section-title">Реєстрація бізнесу</h2>
+            <p class="section-subtitle">Відкриття, закриття та внесення змін — швидко і без зайвого клопоту</p>
         </div>
-        <div class="carousel">
-            <div class="carousel__track">
-                {% for project in projects %}
-                <div class="carousel__slide">
-                    <div class="project-card animate-fade-up">
-                        {% if project.cover_image %}
-                        <div class="project-card__image">
-                            <img src="{{ project.cover_image.image.url|webp }}"
-                                 alt="{{ project.name }}"
-                                 loading="lazy">
-                            <span class="project-card__status">
-                                {{ project.get_status_display }}
-                            </span>
-                        </div>
-                        {% endif %}
-                        <div class="project-card__body">
-                            <h3 class="project-card__name">{{ project.name }}</h3>
-                            <p class="project-card__address">{{ project.address }}, {{ project.city }}</p>
-                            <div class="project-card__stats">
-                                {% if project.year_completed %}
-                                <div class="project-card__stat">
-                                    <div class="project-card__stat-label">Рік</div>
-                                    <div class="project-card__stat-value">{{ project.year_completed }}</div>
-                                </div>
-                                {% endif %}
-                                <div class="project-card__stat">
-                                    <div class="project-card__stat-label">Поверхи</div>
-                                    <div class="project-card__stat-value">{{ project.floors }}</div>
-                                </div>
-                                <div class="project-card__stat">
-                                    <div class="project-card__stat-label">Квартири</div>
-                                    <div class="project-card__stat-value">{{ project.apartments_count }}</div>
-                                </div>
-                                <div class="project-card__stat">
-                                    <div class="project-card__stat-label">Площа</div>
-                                    <div class="project-card__stat-value">{{ project.total_area|floatformat:0 }} м&sup2;</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="registration-grid">
+
+            <div class="reg-card animate-fade-up" data-delay="0">
+                <div class="reg-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="8.5" cy="7" r="4"/>
+                        <line x1="20" y1="8" x2="20" y2="14"/>
+                        <line x1="23" y1="11" x2="17" y2="11"/>
+                    </svg>
                 </div>
-                {% endfor %}
+                <h3 class="reg-card__title">Відкриття / закриття ФОП</h3>
+                <p class="reg-card__desc">Реєстрація фізичної особи-підприємця або припинення підприємницької діяльності з мінімумом клопоту для вас.</p>
             </div>
+
+            <div class="reg-card animate-fade-up" data-delay="200">
+                <div class="reg-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/>
+                        <path d="M12 12v5M9.5 14.5l2.5-2.5 2.5 2.5"/>
+                    </svg>
+                </div>
+                <h3 class="reg-card__title">Відкриття ТОВ</h3>
+                <p class="reg-card__desc">Повний супровід реєстрації товариства з обмеженою відповідальністю: від підготовки документів до отримання виписки.</p>
+            </div>
+
+            <div class="reg-card animate-fade-up" data-delay="400">
+                <div class="reg-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                </div>
+                <h3 class="reg-card__title">Внесення змін та КВЕД</h3>
+                <p class="reg-card__desc">Додавання нових видів діяльності, перехід між системами оподаткування, зміна даних у реєстрах.</p>
+            </div>
+
         </div>
     </div>
 </section>

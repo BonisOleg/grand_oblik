@@ -1,29 +1,46 @@
-{% load image_tags %}
-<section id="perspectives" class="section section--dark-alt">
+<section id="tov" class="section section--dark">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">Перспективи</h2>
-            <p class="section-subtitle">{{ perspective.subtitle }}</p>
+            <h2 class="section-title">Послуги для ТОВ</h2>
+            <p class="section-subtitle">Комплексний бухгалтерський та податковий супровід товариств з обмеженою відповідальністю</p>
         </div>
+        <div class="experience-grid">
 
-        {% if perspective.hero_image %}
-        <div class="perspective-hero animate-scale-in">
-            <img src="{{ perspective.hero_image.url|webp }}" alt="{{ perspective.title }}" loading="lazy">
-            <div class="perspective-hero__overlay"></div>
-            <div class="perspective-hero__label">{{ perspective.title }}</div>
-        </div>
-        {% endif %}
-
-        <p class="perspective-text animate-fade-up">{{ perspective.description }}</p>
-
-        {% if gallery_perspective %}
-        <div class="perspective-mini-gallery">
-            {% for img in gallery_perspective %}
-            <div class="perspective-mini-gallery__item" data-category="perspective">
-                <img src="{{ img.image.url|webp }}" alt="{{ img.caption }}" loading="lazy">
+            <div class="experience-card animate-fade-up" data-delay="0">
+                <h3 class="experience-card__name">Опрацювання первинних документів</h3>
+                <p class="experience-card__desc">Збір, перевірка та систематизація первинної документації компанії</p>
             </div>
-            {% endfor %}
+
+            <div class="experience-card animate-fade-up" data-delay="100">
+                <h3 class="experience-card__name">Ведення бухгалтерського і податкового обліку</h3>
+                <p class="experience-card__desc">Повний облік господарських операцій відповідно до законодавства України</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="200">
+                <h3 class="experience-card__name">Формування і подача звітності</h3>
+                <p class="experience-card__desc">Підготовка та подання всіх видів фінансової та податкової звітності</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="300">
+                <h3 class="experience-card__name">Ведення кадрового обліку</h3>
+                <p class="experience-card__desc">Оформлення трудових відносин, розрахунок заробітної плати, кадрова документація</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="400">
+                <h3 class="experience-card__name">Реєстрація ПН</h3>
+                <p class="experience-card__desc">Складання та реєстрація податкових накладних у ЄРПН своєчасно та без помилок</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="500">
+                <h3 class="experience-card__name">Розблокування ПН</h3>
+                <p class="experience-card__desc">Підготовка пояснень та документів для розблокування зупинених податкових накладних</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="600">
+                <h3 class="experience-card__name">ЗЕД</h3>
+                <p class="experience-card__desc">Облік і звітність за зовнішньоекономічною діяльністю, валютний контроль</p>
+            </div>
+
         </div>
-        {% endif %}
     </div>
 </section>

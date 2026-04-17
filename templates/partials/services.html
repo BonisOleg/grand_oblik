@@ -1,29 +1,76 @@
-<section id="services" class="section section--dark">
+<section id="services" class="section section--light">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">{{ site_settings.services_title }}</h2>
+            <h2 class="section-title">Наші послуги</h2>
+            <p class="section-subtitle">Повний комплекс бухгалтерських та фінансових послуг для Вашого бізнесу</p>
         </div>
         <div class="services-grid">
-            {% for service in services %}
-            <div class="service-card animate-fade-up" data-delay="{{ forloop.counter0|add:forloop.counter0 }}00">
+
+            <div class="service-card animate-fade-up" data-delay="0">
                 <div class="service-card__icon">
-                    {% if service.icon_svg %}
-                        {{ service.icon_svg|safe }}
-                    {% else %}
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    {% endif %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+                        <path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/>
+                        <path d="M12 14a2 2 0 100-4 2 2 0 000 4z"/>
+                    </svg>
                 </div>
                 <div>
-                    <h3 class="service-card__name">{{ service.name }}</h3>
-                    {% if service.short_description %}
-                    <p class="service-card__desc">{{ service.short_description }}</p>
-                    {% endif %}
+                    <h3 class="service-card__name">Послуги для ФОП</h3>
+                    <p class="service-card__desc">Опрацювання документів, звітність, кадровий облік, РРО/ПРРО та повний супровід фізичної особи-підприємця.</p>
                 </div>
+                <p class="service-card__price">від 400 грн.</p>
+                <a href="#fop" class="service-card__btn">Детальніше</a>
             </div>
-            {% endfor %}
+
+            <div class="service-card animate-fade-up" data-delay="200">
+                <div class="service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M8 21h8M12 17v4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="service-card__name">Послуги для ТОВ</h3>
+                    <p class="service-card__desc">Бухгалтерський та податковий облік, реєстрація і розблокування ПН, ЗЕД та повна звітність для товариств.</p>
+                </div>
+                <p class="service-card__price">від 950 грн.</p>
+                <a href="#tov" class="service-card__btn">Детальніше</a>
+            </div>
+
+            <div class="service-card animate-fade-up" data-delay="400">
+                <div class="service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                        <path d="M12 2v3M7 13h2M15 13h2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="service-card__name">Аграрний сектор</h3>
+                    <p class="service-card__desc">Ведення обліку, звітність перед контролюючими органами, кадри та зарплата для агропідприємств.</p>
+                </div>
+                <p class="service-card__price">від 1 400 грн.</p>
+                <a href="#agro" class="service-card__btn">Детальніше</a>
+            </div>
+
+            <div class="service-card animate-fade-up" data-delay="600">
+                <div class="service-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="service-card__name">Реєстраційні дії</h3>
+                    <p class="service-card__desc">Реєстрація та ліквідація ФОП і ТОВ, зміна директора, видів діяльності, юридичної адреси та статутного капіталу.</p>
+                </div>
+                <p class="service-card__price">від 600 грн.</p>
+                <a href="#registration" class="service-card__btn">Детальніше</a>
+            </div>
+
         </div>
     </div>
 </section>

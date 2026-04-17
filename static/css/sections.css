@@ -1,31 +1,37 @@
+/* ─── Services grid ─── */
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1px;
-    background-color: var(--border-subtle);
+    gap: 1.5rem;
 }
 
 .service-card {
-    background-color: var(--bg-dark);
-    padding: 1.5rem;
+    background-color: var(--bg-white);
+    padding: 2rem 1.5rem;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    transition: background-color var(--transition);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-light);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .service-card:hover {
-    background-color: var(--bg-dark-alt);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
 }
 
 .service-card__icon {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    color: var(--accent-dark);
 }
 
 .service-card__icon svg {
@@ -35,19 +41,48 @@
 
 .service-card__name {
     font-family: var(--font-heading);
-    font-size: var(--fs-base);
+    font-size: var(--fs-lg);
     font-weight: var(--fw-bold);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
 }
 
 .service-card__desc {
     font-size: var(--fs-sm);
-    color: var(--text-muted);
-    line-height: 1.5;
+    color: var(--text-dark-muted);
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
+.service-card__price {
+    font-family: var(--font-heading);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-bold);
+    color: var(--accent-dark);
+}
+
+.service-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.25rem;
+    font-family: var(--font-heading);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    background-color: var(--accent-dark);
+    color: var(--text-light);
+    text-transform: none;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+    margin-top: auto;
+}
+
+.service-card__btn:hover {
+    background-color: var(--accent);
+    color: var(--text-light);
+}
+
+/* ─── About / advantage cards ─── */
 .about-text {
     font-size: var(--fs-base);
     line-height: 1.8;
@@ -68,13 +103,32 @@
 .advantage-card {
     text-align: center;
     padding: 2rem 1.5rem;
+    background-color: var(--bg-white);
     border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-light);
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .advantage-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-card);
+}
+
+.advantage-card__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    color: var(--accent-dark);
+}
+
+.advantage-card__icon svg {
+    width: 32px;
+    height: 32px;
 }
 
 .advantage-card__value {
@@ -94,14 +148,17 @@
     font-size: var(--fs-base);
     font-weight: var(--fw-bold);
     text-transform: uppercase;
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
 }
 
 .advantage-card__desc {
     font-size: var(--fs-sm);
     color: var(--text-dark-muted);
+    line-height: 1.6;
 }
 
+/* ─── Experience cards (ФОП / ТОВ) ─── */
 .experience-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -115,8 +172,18 @@
     transition: background-color var(--transition);
 }
 
+.section--light .experience-card {
+    background-color: var(--bg-white);
+    border-color: var(--accent-dark);
+    box-shadow: var(--shadow-light);
+}
+
 .experience-card:hover {
     background-color: var(--bg-dark-alt);
+}
+
+.section--light .experience-card:hover {
+    background-color: var(--bg-light);
 }
 
 .experience-card__name {
@@ -126,9 +193,17 @@
     margin-bottom: 0.25rem;
 }
 
+.section--light .experience-card__name {
+    color: var(--text-dark);
+}
+
 .experience-card__desc {
     font-size: var(--fs-sm);
     color: var(--text-muted);
+}
+
+.section--light .experience-card__desc {
+    color: var(--text-dark-muted);
 }
 
 .experience-card__badge {
@@ -141,6 +216,7 @@
     font-weight: var(--fw-semibold);
 }
 
+/* ─── Steps (How we work) ─── */
 .steps {
     display: grid;
     grid-template-columns: 1fr;
@@ -186,9 +262,59 @@
     line-height: 1.6;
 }
 
+/* ─── Registration grid ─── */
+.registration-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.reg-card {
+    background-color: var(--bg-section);
+    padding: 2rem 1.5rem;
+    border-top: 3px solid var(--accent);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.reg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.reg-card__icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+}
+
+.reg-card__icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.reg-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+.reg-card__desc {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ─── Responsive ─── */
 @media (min-width: 768px) {
     .services-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .advantages {
@@ -202,15 +328,19 @@
     .steps {
         grid-template-columns: 1fr 1fr;
     }
+
+    .registration-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (min-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .service-card {
+        padding: 2.5rem 2rem;
     }
 
-    .service-card {
-        padding: 2rem;
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .steps {
@@ -242,6 +372,41 @@
     }
 
     .experience-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
+}
+
+/* ─── Parallax section backgrounds ─── */
+#fop,
+#tov,
+#agro,
+#registration {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#fop { background-image: url('../img/fop.webp'); }
+#tov { background-image: url('../img/tov.webp'); }
+#agro { background-image: url('../img/agrar.webp'); }
+#registration { background-image: url('../img/reestra.webp'); }
+
+#fop::before,
+#tov::before,
+#agro::before,
+#registration::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 14, 0.82);
+    z-index: 0;
+}
+
+#fop > .container,
+#tov > .container,
+#agro > .container,
+#registration > .container {
+    position: relative;
+    z-index: 1;
 }

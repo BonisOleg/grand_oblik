@@ -1,22 +1,18 @@
-{% load image_tags %}
-<section id="gallery" class="section section--dark">
+<section id="section-4" class="section section--dark">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">{{ site_settings.gallery_title }}</h2>
+            <h2 class="section-title"><!-- section title --></h2>
         </div>
 
         <div class="gallery-filters animate-fade-up">
-            <button class="gallery-filter is-active" data-category="realized">{{ site_settings.gallery_tab_realized }}</button>
-            <button class="gallery-filter" data-category="completed">{{ site_settings.gallery_tab_completed }}</button>
-            <button class="gallery-filter" data-category="perspective">{{ site_settings.gallery_tab_perspective }}</button>
+            <button class="gallery-filter is-active" data-category="cat-1"><!-- filter 1 --></button>
+            <button class="gallery-filter" data-category="cat-2"><!-- filter 2 --></button>
+            <button class="gallery-filter" data-category="cat-3"><!-- filter 3 --></button>
         </div>
 
         <div class="gallery-grid">
-            {% for img in gallery_images %}
-            <div class="gallery-item animate-scale-in"
-                 data-category="{{ img.category }}"
-                 data-delay="{{ forloop.counter0|add:forloop.counter0 }}0">
-                <img src="{{ img.image.url|webp }}" alt="{{ img.caption }}" loading="lazy">
+            <div class="gallery-item animate-scale-in" data-category="cat-1" data-delay="0">
+                <!-- image -->
                 <div class="gallery-item__overlay">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"/>
@@ -25,7 +21,56 @@
                     </svg>
                 </div>
             </div>
-            {% endfor %}
+            <div class="gallery-item animate-scale-in" data-category="cat-1" data-delay="20">
+                <!-- image -->
+                <div class="gallery-item__overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery-item animate-scale-in" data-category="cat-2" data-delay="40">
+                <!-- image -->
+                <div class="gallery-item__overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery-item animate-scale-in" data-category="cat-2" data-delay="60">
+                <!-- image -->
+                <div class="gallery-item__overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery-item animate-scale-in" data-category="cat-3" data-delay="80">
+                <!-- image -->
+                <div class="gallery-item__overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="gallery-item animate-scale-in" data-category="cat-3" data-delay="100">
+                <!-- image -->
+                <div class="gallery-item__overlay">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
+                </div>
+            </div>
         </div>
     </div>
 </section>

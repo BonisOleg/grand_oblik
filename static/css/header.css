@@ -194,3 +194,22 @@
         display: none;
     }
 }
+
+.nav__phone {
+    display: none;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+.nav__phone:hover {
+    color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+    .nav__phone {
+        display: flex;
+        align-items: center;
+    }
+}

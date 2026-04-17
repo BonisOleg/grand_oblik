@@ -1,7 +1,5 @@
 {% load static %}
-<p class="contact-form-wrap__title">
-    {{ site_settings.contact_form_text }}
-</p>
+<p class="contact-form-wrap__title">Заповніть форму і наш менеджер зателефонує вам найближчим часом</p>
 <form hx-post="{% url 'contact_submit' %}"
       hx-target="#contact-form-container"
       hx-swap="innerHTML"
@@ -32,7 +30,7 @@
     </div>
 
     <button type="submit" class="btn btn--filled form-submit">
-        <span>{{ site_settings.contact_form_button }}</span>
+        <span>Отримати консультацію</span>
         <span id="form-spinner" class="htmx-indicator">...</span>
     </button>
 </form>

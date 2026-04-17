@@ -1,21 +1,51 @@
-<section class="section section--dark-alt">
+<section id="fop" class="section section--dark-alt">
     <div class="container">
         <div class="section-header animate-slide-left">
-            <h2 class="section-title">{{ site_settings.experience_title }}</h2>
-            {% if site_settings.experience_subtitle %}
-            <p class="section-subtitle">{{ site_settings.experience_subtitle }}</p>
-            {% endif %}
+            <h2 class="section-title">Послуги для ФОП</h2>
+            <p class="section-subtitle">Повний супровід фізичної особи-підприємця на будь-якій системі оподаткування</p>
         </div>
         <div class="experience-grid">
-            {% for pp in partner_projects %}
-            <div class="experience-card animate-fade-up" data-delay="{{ forloop.counter0 }}00">
-                <h3 class="experience-card__name">{{ pp.name }}</h3>
-                {% if pp.description %}
-                <p class="experience-card__desc">{{ pp.description }}</p>
-                {% endif %}
-                <span class="experience-card__badge">{{ pp.get_category_display }}</span>
+
+            <div class="experience-card animate-fade-up" data-delay="0">
+                <h3 class="experience-card__name">Опрацювання первинних документів</h3>
+                <p class="experience-card__desc">Збір, перевірка та систематизація первинної документації</p>
             </div>
-            {% endfor %}
+
+            <div class="experience-card animate-fade-up" data-delay="100">
+                <h3 class="experience-card__name">Формування і контроль сплати податків</h3>
+                <p class="experience-card__desc">Розрахунок, планування та контроль своєчасної сплати всіх податків</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="200">
+                <h3 class="experience-card__name">Формування і подача звітності</h3>
+                <p class="experience-card__desc">Підготовка та подання всіх форм звітності до податкових та інших органів</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="300">
+                <h3 class="experience-card__name">Ведення кадрового обліку</h3>
+                <p class="experience-card__desc">Оформлення трудових відносин, накази, особові справи, трудові книжки</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="400">
+                <h3 class="experience-card__name">Подання разової звітності</h3>
+                <p class="experience-card__desc">Разові послуги для клієнтів, які не обслуговуються в нашій компанії</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="500">
+                <h3 class="experience-card__name">РРО, ПРРО</h3>
+                <p class="experience-card__desc">Реєстрація та супровід реєстраторів розрахункових операцій і програмних РРО</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="600">
+                <h3 class="experience-card__name">Допомога в підборі системи оподаткування</h3>
+                <p class="experience-card__desc">Аналіз діяльності та вибір оптимальної системи оподаткування</p>
+            </div>
+
+            <div class="experience-card animate-fade-up" data-delay="700">
+                <h3 class="experience-card__name">ФОП з ПДВ</h3>
+                <p class="experience-card__desc">Реєстрація платником ПДВ, облік та звітність з податку на додану вартість</p>
+            </div>
+
         </div>
     </div>
 </section>

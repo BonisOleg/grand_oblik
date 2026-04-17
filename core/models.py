@@ -3,7 +3,7 @@ from django.utils.html import mark_safe
 
 
 class SiteSettings(models.Model):
-    company_name = models.CharField('Назва компанії', max_length=200, default='ЕЛІТ-ФАСАД ГРУП')
+    company_name = models.CharField('Назва компанії', max_length=200, default='Гранд Облік')
     slogan = models.CharField('Слоган', max_length=300, blank=True)
     phone_main = models.CharField('Основний телефон', max_length=30)
     phone_dev = models.CharField('Телефон відділу розвитку', max_length=30, blank=True)
@@ -17,17 +17,17 @@ class SiteSettings(models.Model):
     og_image = models.ImageField('OG Image', upload_to='site/', blank=True)
 
     # Секція "Про компанію"
-    about_title = models.CharField('Заголовок блоку "Про нас"', max_length=200, default='Про компанію')
+    about_title = models.CharField('Заголовок блоку "Про нас"', max_length=200, default='Аграрний сектор')
     about_subtitle = models.CharField('Підзаголовок блоку "Про нас"', max_length=300, blank=True)
     about_text_1 = models.TextField('Перший абзац "Про нас"', blank=True)
     about_text_2 = models.TextField('Другий абзац "Про нас"', blank=True)
 
     # Заголовки секцій
-    projects_title = models.CharField('Секція "Об\'єкти" — заголовок', max_length=200, default="Власні об'єкти")
-    projects_subtitle = models.CharField('Секція "Об\'єкти" — підзаголовок', max_length=300, default='Збудовані житлові комплекси')
+    projects_title = models.CharField('Секція "Об\'єкти" — заголовок', max_length=200, default='Реєстрація бізнесу')
+    projects_subtitle = models.CharField('Секція "Об\'єкти" — підзаголовок', max_length=300, default='Відкриття, закриття та внесення змін')
     services_title = models.CharField('Секція "Послуги" — заголовок', max_length=200, default='Наші послуги')
-    experience_title = models.CharField('Секція "Досвід" — заголовок', max_length=200, default='Наш досвід')
-    experience_subtitle = models.CharField('Секція "Досвід" — підзаголовок', max_length=300, default='Проєкти, в яких ми брали участь')
+    experience_title = models.CharField('Секція "Досвід" — заголовок', max_length=200, default='Послуги для ФОП')
+    experience_subtitle = models.CharField('Секція "Досвід" — підзаголовок', max_length=300, default='Повний супровід ФОП на будь-якій системі оподаткування')
     gallery_title = models.CharField('Секція "Галерея" — заголовок', max_length=200, default='Галерея')
     gallery_tab_realized = models.CharField('Галерея — вкладка "Реалізовані"', max_length=100, default='Реалізовані об\'єкти')
     gallery_tab_completed = models.CharField('Галерея — вкладка "Вишгород"', max_length=100, default='Об\'єкти Вишгород')
@@ -61,8 +61,8 @@ class SiteSettings(models.Model):
     @classmethod
     def load(cls):
         obj, _ = cls.objects.get_or_create(pk=1, defaults={
-            'phone_main': '+38 (044) 561-62-63',
-            'address': 'м. Вишгород, вул. Шолуденка, 18А, оф.181',
+            'phone_main': '+38 (098) 123 45 67',
+            'address': '',
         })
         return obj
 
