@@ -11,7 +11,12 @@ class SiteSettings(models.Model):
     email = models.EmailField('Email', blank=True)
     logo = models.ImageField('Логотип', upload_to='site/', blank=True)
     favicon = models.ImageField('Favicon', upload_to='site/', blank=True)
-    google_maps_embed_url = models.TextField('Google Maps embed (iframe)', blank=True)
+    google_maps_embed_url = models.TextField(
+        'URL карти Google Maps',
+        blank=True,
+        help_text='Лише адреса з атрибута src (https://…), без тегів iframe. '
+        'Google Maps → Поділитися → Вставити карту → скопіювати src.',
+    )
     meta_title = models.CharField('Meta Title', max_length=200, blank=True)
     meta_description = models.TextField('Meta Description', blank=True)
     og_image = models.ImageField('OG Image', upload_to='site/', blank=True)
