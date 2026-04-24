@@ -410,3 +410,17 @@
     position: relative;
     z-index: 1;
 }
+
+@media (max-width: 767px) {
+    #fop,
+    #tov,
+    #agro,
+    #registration {
+        background-attachment: scroll;
+    }
+
+    #fop { background-image: url('../img/fopm.webp'); }
+    #tov { background-image: url('../img/tovm.webp'); }
+    #agro { background-image: url('../img/agrarm.webp'); }
+    #registration { background-image: url('../img/reestram.webp'); }
+}

@@ -1,3 +1,4 @@
+{% load static %}
 <div class="top-bar">
     <div class="container top-bar__inner">
         <a href="tel:+380981234567" class="top-bar__phone">
@@ -11,7 +12,9 @@
 
 <header class="nav" id="nav">
     <div class="container nav__inner">
-        <a href="#" class="nav__logo">Гранд Облік</a>
+        <a href="#" class="nav__logo" aria-label="Гранд Облік — на головну">
+            <img src="{% static 'img/logo.webp' %}" alt="Гранд Облік" class="nav__logo-img" width="160" height="40">
+        </a>
         <nav class="nav__menu">
             <a href="#services" class="nav__link">Послуги</a>
             <a href="#agro" class="nav__link">Про нас</a>

@@ -51,13 +51,22 @@
 }
 
 .nav__logo {
-    font-family: var(--font-heading);
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-extrabold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-light);
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav__logo-img {
+    display: block;
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .nav__logo-img {
+        height: 40px;
+    }
 }
 
 .nav__menu {

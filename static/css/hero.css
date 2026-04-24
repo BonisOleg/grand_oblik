@@ -144,3 +144,10 @@
         max-width: 780px;
     }
 }
+
+@media (max-width: 767px) {
+    .hero {
+        background-image: url('../img/hirom.webp');
+        background-attachment: scroll;
+    }
+}
