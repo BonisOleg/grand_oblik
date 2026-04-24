@@ -93,13 +93,11 @@ class Command(BaseCommand):
         s.contact_form_button = 'Отримати консультацію'
         s.contact_success_title = 'Дякуємо за звернення!'
         s.contact_success_text = "Наш менеджер зв'яжеться з вами найближчим часом."
+        # Вбудована карта (output=embed) для вул. Котляревського, 3, Полтава
         s.google_maps_embed_url = (
-            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.7848191221474'
-            '!2d30.4771081!3d50.593952699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2'
-            '!1s0x40d4d4a9caed2dcb%3A0x2ff0c3c953d820ff!2z0JbQmiDQl9GW0YDQutCwINCS0LjRiNCz0L7R'
-            'gNC-0LTQsA!5e0!3m2!1suk!2sua!4v1774804893547!5m2!1suk!2sua" '
-            'width="100%" height="450" style="border:0;" allowfullscreen="" '
-            'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
+            'https://maps.google.com/maps?q=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+'
+            '%D0%9A%D0%BE%D1%82%D0%BB%D1%8F%D1%80%D0%B5%D0%B2%D1%81%D1%8C%D0%BA%D0%BE%D0%B3%D0%BE%2C+3%2C+'
+            '%D0%9F%D0%BE%D0%BB%D1%82%D0%B0%D0%B2%D0%B0&z=17&output=embed&hl=uk'
         )
         s.save()
         self.stdout.write('  SiteSettings OK')

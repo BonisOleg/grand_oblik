@@ -9,6 +9,7 @@ services:
     plan: free
     name: stroika
     runtime: python
+    autoDeployTrigger: commit
     buildCommand: './build.sh'
     startCommand: 'gunicorn config.wsgi --bind 0.0.0.0:$PORT'
     envVars:
