@@ -22,9 +22,9 @@ services:
       - key: DEBUG
         value: 'False'
       - key: ALLOWED_HOSTS
-        value: '.onrender.com,elit-fasad-development.com.ua'
+        value: '.onrender.com,elit-fasad-development.com.ua,grand-oblik.com.ua,www.grand-oblik.com.ua'
       - key: CSRF_TRUSTED_ORIGINS
-        value: 'https://stroika.onrender.com,https://elit-fasad-development.com.ua'
+        value: 'https://stroika.onrender.com,https://elit-fasad-development.com.ua,https://grand-oblik.com.ua,https://www.grand-oblik.com.ua'
       - key: USE_CLOUDINARY
         value: 'True'
       - key: CLOUDINARY_CLOUD_NAME
