@@ -46,6 +46,13 @@ function initSmoothScroll() {
 
             const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
             window.scrollTo({ top, behavior: 'smooth' });
+
+            const { pathname, search } = window.location;
+            try {
+                history.pushState(null, '', `${pathname}${search}${targetId}`);
+            } catch {
+                window.location.hash = targetId;
+            }
         });
     });
 }

@@ -109,6 +109,19 @@
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
+a.advantage-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    scroll-margin-top: calc(var(--topbar-height) + var(--header-height) + 0.75rem);
+    -webkit-tap-highlight-color: rgba(var(--accent-rgb), 0.2);
+}
+
+a.advantage-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 .advantage-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card);
