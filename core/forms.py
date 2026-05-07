@@ -22,20 +22,35 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactRequest
         fields = ['name', 'phone', 'object_type']
+        error_messages = {
+            'name': {
+                'required': "Вкажіть ім'я",
+            },
+            'phone': {
+                'required': 'Вкажіть номер телефону',
+            },
+        }
         widgets = {
             'name': forms.TextInput(attrs={
                 'placeholder': "Ваше ім'я",
                 'class': 'form-input',
+                'required': True,
+                'aria-required': 'true',
+                'autocomplete': 'name',
             }),
             'phone': forms.TextInput(attrs={
                 'placeholder': '+38 (0__) ___-__-__',
                 'class': 'form-input',
                 'type': 'tel',
                 'inputmode': 'tel',
+                'required': True,
+                'aria-required': 'true',
+                'autocomplete': 'tel',
             }),
             'object_type': forms.TextInput(attrs={
                 'placeholder': "Тип об'єкта (необов'язково)",
                 'class': 'form-input',
+                'autocomplete': 'off',
             }),
         }
 

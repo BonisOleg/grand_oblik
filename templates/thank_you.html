@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'partials/header.html' %}
+
+<main class="thank-you-page">
+    <section class="section section--dark thank-you-page__section">
+        <div class="container thank-you-page__inner">
+            <div class="thank-you-page__card animate-fade-up" role="status" aria-live="polite">
+                <svg class="thank-you-page__icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <h1 class="thank-you-page__title">{{ site_settings.contact_success_title }}</h1>
+                <p class="thank-you-page__text">{{ site_settings.contact_success_text }}</p>
+                <a href="{% url 'index' %}" class="btn btn--filled thank-you-page__btn">На головну</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% include 'partials/footer.html' %}
+
+<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Нагору">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
+{% endblock %}

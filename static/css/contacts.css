@@ -84,6 +84,76 @@
     color: #e74c3c;
 }
 
+.form-alert {
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+    font-size: var(--fs-sm);
+    line-height: 1.45;
+    border: 1px solid var(--border-subtle);
+}
+
+.form-alert p {
+    margin: 0;
+}
+
+.form-alert p + p {
+    margin-top: 0.35rem;
+}
+
+.form-alert--error {
+    border-color: rgba(231, 76, 60, 0.45);
+    color: #f0b4ad;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.thank-you-page__section {
+    padding-top: clamp(3rem, 10vh, 5rem);
+    padding-bottom: clamp(3rem, 12vh, 6rem);
+}
+
+.thank-you-page__inner {
+    width: 100%;
+}
+
+.thank-you-page__card {
+    max-width: 28rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    text-align: center;
+}
+
+.thank-you-page__icon {
+    display: block;
+    margin: 0 auto 1.25rem;
+    color: var(--accent);
+}
+
+.thank-you-page__title {
+    font-family: var(--font-heading);
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-extrabold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.thank-you-page__text {
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+}
+
+.thank-you-page__btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 .htmx-indicator {
     display: none;
 }
@@ -239,6 +309,14 @@
 }
 
 @media (min-width: 768px) {
+    .thank-you-page__card {
+        padding: 3rem 2rem;
+    }
+
+    .thank-you-page__title {
+        font-size: var(--fs-3xl);
+    }
+
     .contact-map {
         height: 420px;
     }

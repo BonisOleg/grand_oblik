@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.utils.html import escape
+from django.urls import reverse
 from .models import (
     HeroSlide, Project, Advantage,
     PartnerProject, GalleryImage, PerspectiveInfo, SiteSettings,
@@ -31,21 +31,19 @@ def contact_submit(request):
     form = ContactForm(request.POST)
     if form.is_valid():
         form.save()
-        s = SiteSettings.load()
-        # Без animate-fade-up: динамічний вміст через HTMX не потрапляє в IntersectionObserver
-        # і залишається з opacity:0 без класу is-visible.
-        return HttpResponse(
-            '<div class="form-success" role="status" aria-live="polite">'
-            '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-            '<path d="M20 6L9 17l-5-5"/>'
-            '</svg>'
-            f'<p>{escape(s.contact_success_title)}</p>'
-            f'<p>{escape(s.contact_success_text)}</p>'
-            '</div>'
-        )
+        thank_url = reverse('thank_you')
+        if request.headers.get('HX-Request', '').strip().lower() == 'true':
+            response = HttpResponse(status=200)
+            response['HX-Redirect'] = thank_url
+            return response
+        return redirect('thank_you')
 
     _mark_error_fields(form)
     return render(request, 'partials/_contact_form.html', {'form': form}, status=422)
+
+
+def thank_you(request):
+    return render(request, 'thank_you.html')
 
 
 def _mark_error_fields(form):
