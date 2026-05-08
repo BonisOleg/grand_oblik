@@ -218,6 +218,41 @@
     color: var(--accent);
 }
 
+.contact-info__messengers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.1rem;
+}
+
+.messenger-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    transition: opacity var(--transition);
+    min-height: 32px;
+}
+
+.messenger-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.messenger-link span {
+    line-height: 1;
+}
+
+.messenger-link:hover {
+    opacity: 0.8;
+}
+
+.messenger-link--viber   { color: #9d89f5; }
+.messenger-link--telegram { color: #5fc3f6; }
+.messenger-link--whatsapp { color: #4ce87a; }
+
 .contacts__main {
     display: flex;
     flex-direction: column;
