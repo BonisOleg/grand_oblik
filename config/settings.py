@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
 from dotenv import load_dotenv
 import dj_database_url
 
@@ -25,6 +26,10 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 INSTALLED_APPS = [
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
+    'unfold.contrib.inlines',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,6 +38,99 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
 ]
+
+UNFOLD = {
+    'SITE_TITLE': 'ЕЛІТ-ФАСАД',
+    'SITE_HEADER': 'Адміністрування',
+    'SITE_URL': '/',
+    'SITE_ICON': None,
+    'SHOW_HISTORY': True,
+    'SHOW_VIEW_ON_SITE': False,
+    'SIDEBAR': {
+        'show_search': True,
+        'show_all_applications': False,
+        'navigation': [
+            {
+                'title': 'Налаштування',
+                'separator': False,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': 'Налаштування сайту',
+                        'icon': 'settings',
+                        'link': reverse_lazy('admin:core_sitesettings_changelist'),
+                    },
+                    {
+                        'title': 'Перспективний проєкт',
+                        'icon': 'location_city',
+                        'link': reverse_lazy('admin:core_perspectiveinfo_changelist'),
+                    },
+                ],
+            },
+            {
+                'title': 'Контент',
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': 'Слайди Hero',
+                        'icon': 'slideshow',
+                        'link': reverse_lazy('admin:core_heroslide_changelist'),
+                    },
+                    {
+                        'title': 'Послуги',
+                        'icon': 'construction',
+                        'link': reverse_lazy('admin:core_service_changelist'),
+                    },
+                    {
+                        'title': 'Переваги',
+                        'icon': 'star',
+                        'link': reverse_lazy('admin:core_advantage_changelist'),
+                    },
+                    {
+                        'title': 'Кроки роботи',
+                        'icon': 'checklist',
+                        'link': reverse_lazy('admin:core_workstep_changelist'),
+                    },
+                ],
+            },
+            {
+                'title': "Об'єкти",
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': "Об'єкти",
+                        'icon': 'apartment',
+                        'link': reverse_lazy('admin:core_project_changelist'),
+                    },
+                    {
+                        'title': 'Галерея',
+                        'icon': 'photo_library',
+                        'link': reverse_lazy('admin:core_galleryimage_changelist'),
+                    },
+                    {
+                        'title': 'Партнерські проєкти',
+                        'icon': 'handshake',
+                        'link': reverse_lazy('admin:core_partnerproject_changelist'),
+                    },
+                ],
+            },
+            {
+                'title': 'Заявки',
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': 'Заявки від клієнтів',
+                        'icon': 'contact_phone',
+                        'link': reverse_lazy('admin:core_contactrequest_changelist'),
+                    },
+                ],
+            },
+        ],
+    },
+}
 
 USE_CLOUDINARY = os.getenv('USE_CLOUDINARY', 'False').lower() in ('true', '1', 'yes')
 

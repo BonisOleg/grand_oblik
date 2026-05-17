@@ -1,4 +1,5 @@
-Django>=5.1,<5.2
+Django>=5.1
+django-unfold>=0.40.0
 django-cloudinary-storage>=0.3.0
 cloudinary>=1.41.0
 Pillow>=10.4.0
